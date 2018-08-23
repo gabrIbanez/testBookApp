@@ -1,4 +1,4 @@
-<%= form_with(model: author, local: true) do |form| %>
+<%= simple_form_for(@author) do |form| %>
   <% if author.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
@@ -12,18 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+      </div>
+      <div class="col-xs-6">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+        
+      </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :birth_date %>
-    <%= form.datetime_select :birth_date %>
+    <%= form.input :birth_date, as: :date, label: "Prochaine disponibilité :", :use_month_names => ['janvier', 'février',
+      'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'] %>
   </div>
 
   <div class="field">
@@ -31,12 +38,12 @@
     <%= form.text_field :city %>
   </div>
 
-  <div class="field">
-    <%= form.label :nb_of_book_published %>
-    <%= form.text_field :nb_of_book_published %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <div class="row">
+      <div class="col-xs-3"></div>
+      <%= form.submit 'Mettre à Jour', class: 'btn btn-primary col-xs-6' %>
+      <div class="col-xs-3"></div>
+    </div>
+      
   </div>
 <% end %>

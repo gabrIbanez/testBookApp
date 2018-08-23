@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # root to: 'pages#home'
+  root to: 'pages#home'
+  resources :all_books, only: :index
 
   resources :authors do 
   	resources :books

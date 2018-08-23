@@ -1,7 +1,9 @@
-<h1>Editing Book</h1>
-
-<%= simple_form_for @book, url: edit_author_book_path(@author) do |form| %>
-  <% if book.errors.any? %>
+<h1 class="text-center">Editer le livre de <%= @book.author_name %></h1>
+<div class="container">
+  <div class="col-xs-3"></div>
+  <div class="col-xs-6">
+    <%= simple_form_for @book, url: edit_author_book_path(@author) do |form| %>
+  <% if @book.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
@@ -34,9 +36,20 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-10">
+        <%= form.submit 'Mettre à Jour le livre', class: 'btn btn-primary col-xs-6' %> 
+      </div>
+    </div>
+    <div class="row text-center">
+      <%= link_to 'Accueil', root_path(@author), class: 'btn btn-success' %> |
+      <%= link_to 'Show', author_book_path(@author, @book), class: 'btn btn-info' %> |
+      <%= link_to 'Back', author_books_path(@author), class: 'btn btn-danger' %> 
+    </div>
+
   </div>
 <% end %>
+  </div>
+</div>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+

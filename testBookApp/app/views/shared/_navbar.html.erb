@@ -1,0 +1,36 @@
+<div class="navbar-prium">
+  <!-- Logo -->
+  <a href="/" class="navbar-prium-brand">
+    <h1 id="text-logo">La Boite aux Livres</h1>
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-prium-right hidden-xs hidden-sm">
+
+    <a href="/authors" class="navbar-prium-item navbar-prium-link">Les authors</a>
+    <a href="/all_books" class="navbar-prium-item navbar-prium-link">Les Livres</a>
+
+    <!-- Profile picture with dropdown list -->
+    <div class="navbar-prium-item">
+      <div class="dropdown">
+
+        <img src="assets/books.png" class="avatar dropdown-toggle" id="navbar-prium-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-prium-dropdown-menu">
+          <li><a href="/authors">Les Auteurs</a></li>
+          <li><a href="/all_books">Les livres</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-prium-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-prium-dropdown-menu">
+        <li><a href="/authors">Les Auteurs</a></li>
+          <li><a href="/all_books">Les livres</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
