@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  birth_date: 2018-08-23 10:16:51
+  city: MyString
+  nb_of_book_published: 
+
+two:
+  first_name: MyString
+  last_name: MyString
+  birth_date: 2018-08-23 10:16:51
+  city: MyString
+  nb_of_book_published: 
