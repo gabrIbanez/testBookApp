@@ -1,27 +1,32 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong><%= @author.name %></strong>
-  
-</p>
-
-<p>
-  <strong>Date de Naissance:</strong>
-  <%= @author.birth_date.strftime('%d-%m-%Y') %>
-</p>
-
-<p>
-  <strong>Ville :</strong>
-  <%= @author.city %>
-</p>
-
-<p>
-  <strong>Nombre de livre(s) publié(s):</strong>
-  <%= @author.nb_of_book_published %>
-</p>
+<div class="container-fluid">
+	<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/random');">
+	  <div class="card-category">Popular</div>
+	  <div class="card-description">
+	    <h2><%= @author.name %></h2>
+	    <p>
+	    	<strong>Date de Naissance:</strong>
+	  		<%= @author.birth_date.strftime('%d-%m-%Y') %>
+	  		<strong>Ville :</strong>
+	  		<%= @author.city %>
+	  		<strong>Nombre de livre(s) publié(s):</strong>
+	  		<%= @author.nb_of_book_published %>
+	  	</p>
+	  </div>
+	  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/random">
+	  <a class="card-link" href="#" ></a>
+	</div>
 	<%= link_to 'Ajouter un livre à cet auteur', new_author_book_path(@author), class: 'btn btn-primary' %> |
 	<%= link_to 'Voir les Livres de cet auteur', author_books_path(@author), class: 'btn btn-primary' %> |
-
-
-<%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-info' %> |
-<%= link_to 'Back', authors_path, class: 'btn btn-danger' %>
+	<%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-info' %> |
+	<%= link_to 'Back', authors_path, class: 'btn btn-danger' %>
+</div>
+<div id="btn-new-book-author">
+	<p class="btn btn-info" >Ajouter un nouveau Livre à cet author</p>
+</div>
+<div id="container-new-book">
+	<%= render 'books/new.html.erb', author: @author %>
+</div>
+<script>
+	
+</script>

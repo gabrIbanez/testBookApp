@@ -5,6 +5,17 @@
     <a class="btn btn-primary btn-lg">Découvrir</a>
   </div>
 </div>
+<div class="row serch_tab">
+    <%= form_tag root_path, method: :get do %>
+      <div class="col-xs-offset-3 col-xs-4">
+        <%= text_field_tag :query, params[:query],class: "form-control",placeholder: "Chercher un livre"%>
+      </div>
+      <div class="col-xs-2">
+        <%= submit_tag 'Chercher', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+</div>
+
 <div class="container" id="container-index-books">
   <div class="row">
   	<% @books.each do |book|  %>
