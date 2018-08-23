@@ -1,17 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @author.first_name %>
+  <strong><%= @author.name %></strong>
+  
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @author.last_name %>
-</p>
-
-<p>
-  <strong>Birth date:</strong>
+  <strong>Date de Naissance:</strong>
   <%= @author.birth_date %>
 </p>
 
@@ -25,5 +20,10 @@
   <%= @author.nb_of_book_published %>
 </p>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<p>
+  <strong>Voir mes</strong>
+  <%= @author.nb_of_book_published %>
+</p>
+
+<%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-info' %> |
+<%= link_to 'Back', authors_path, class: 'btn btn-danger' %>
