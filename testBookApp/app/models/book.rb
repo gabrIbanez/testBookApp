@@ -1,11 +1,5 @@
 class Book < ApplicationRecord
-	include PgSearch
-  pg_search_scope :search_by_name, 
-  	against: :name,
-  	associated_against: {
-  		author: [:first_name, :last_name]
-  	}
-  		
+	
 	
 	after_create :author_books_implementation
 	
