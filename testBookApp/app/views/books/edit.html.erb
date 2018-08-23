@@ -1,6 +1,42 @@
 <h1>Editing Book</h1>
 
-<%= render 'form', book: @book %>
+<%= simple_form_for @book, url: edit_author_book_path(@author) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.input :name %>
+  </div>
+
+  <div class="field">
+    <%= form.input :published_date %>
+  </div>
+
+  <div class="field">
+    <%= form.input :description %>
+  </div>
+
+  <div class="field">
+    <%= form.input :author_name, label: 'Written by' %>
+  </div>
+  
+  <div class="field">
+    <%= form.input :page_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>
