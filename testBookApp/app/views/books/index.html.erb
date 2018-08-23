@@ -3,7 +3,7 @@
     <% @books.each do |book|  %>
       <div class="col-xs-12 col-sm-4">
       <%= link_to  author_book_path(book.author, book)  do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/book_cards.jpg');">
           <div class="card-category"><%= book.author_name %></div>
           <div class="card-description">
             <h2><%= book.name %></h2>
