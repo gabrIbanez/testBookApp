@@ -7,23 +7,21 @@
 
 <p>
   <strong>Date de Naissance:</strong>
-  <%= @author.birth_date %>
+  <%= @author.birth_date.strftime('%d-%m-%Y') %>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>Ville :</strong>
   <%= @author.city %>
 </p>
 
 <p>
-  <strong>Nb of book published:</strong>
+  <strong>Nombre de livre(s) publié(s):</strong>
   <%= @author.nb_of_book_published %>
 </p>
+	<%= link_to 'Ajouter un livre à cet auteur', new_author_book_path(@author), class: 'btn btn-primary' %> |
+	<%= link_to 'Voir les Livres de cet auteur', author_books_path(@author), class: 'btn btn-primary' %> |
 
-<p>
-  <strong>Voir mes</strong>
-  <%= @author.nb_of_book_published %>
-</p>
 
 <%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-info' %> |
 <%= link_to 'Back', authors_path, class: 'btn btn-danger' %>

@@ -1,5 +1,11 @@
-<h1>New Book for <%= @author.first_name %> <%= @author.last_name %></h1>
+<h1 class="text-center">New Book for <%= @author.name %></h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<%= render 'form', book: @book %>
+			<%= link_to 'Back', author_books_path(@author), class: 'btn btn-info' %>
+		</div>
+	</div>
+</div>
 
-<%= render 'form', book: @book %>
-
-<%= link_to 'Back', author_books_path(@author) %>

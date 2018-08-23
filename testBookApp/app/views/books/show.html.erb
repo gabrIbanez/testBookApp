@@ -25,5 +25,6 @@
   <%= @book.page_number %>
 </p>
 
-<%= link_to 'Edit', edit_author_book_path(@author, @book) %> |
-<%= link_to 'Back', author_books_path(@author) %>
+<%= link_to 'Accueil', root_path(@author), class: 'btn btn-success' %> |
+<%= link_to 'Edit', edit_author_book_path(@author, @book), class: 'btn btn-info' %> |
+<%= link_to 'Back', author_books_path(@author), class: 'btn btn-danger' %> 
