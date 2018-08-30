@@ -16,17 +16,45 @@
 	  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/random">
 	  <a class="card-link" href="#" ></a>
 	</div>
-	<%= link_to 'Ajouter un livre à cet auteur', new_author_book_path(@author), class: 'btn btn-primary' %> |
 	<%= link_to 'Voir les Livres de cet auteur', author_books_path(@author), class: 'btn btn-primary' %> |
-	<%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-info' %> |
+	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+	  Éditer cet auteur
+	</button>|
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_book">
+	  Ajouter un livre à <%= @author.name %>
+	</button>|
 	<%= link_to 'Back', authors_path, class: 'btn btn-danger' %>
 </div>
-<div id="btn-new-book-author">
-	<p class="btn btn-info" >Ajouter un nouveau Livre à cet author</p>
+
+<!-- Modal Edit author -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><h1>Editing <%= @author.name %></h1></h5>
+      </div>
+      <div class="modal-body">
+				<%= render 'edit', author: @author%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div id="container-new-book">
-	<%= render 'books/new.html.erb', author: @author %>
+<!-- Modal adding new book to author -->
+<div class="modal fade" id="add_book" tabindex="-1" role="dialog" aria-labelledby="add_bookLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="add_bookLabel"><h1>Ajouter un livre à <%= @author.name %></h1></h5>
+      </div>
+      <div class="modal-body">
+      	<%= render "books/new_for_modal", author: @author, book: @book %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
-<script>
-	
-</script>

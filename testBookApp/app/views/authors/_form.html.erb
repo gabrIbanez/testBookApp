@@ -17,19 +17,17 @@
   <div class="field">
     <div class="row">
       <div class="col-xs-6">
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name %>
+        <%= form.input :first_name, label: "Prénom" %>
       </div>
       <div class="col-xs-6">
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
+        <%= form.input :last_name, label: 'Nom' %>
         
       </div>
     </div>
   </div>
 
   <div class="field">
-    <%= form.input :birth_date, as: :date, label: "Prochaine disponibilité :", :use_month_names => ['janvier', 'février',
+    <%= form.input :birth_date, as: :date, label: "Date de Naissance de l'auteur :", :use_month_names => ['janvier', 'février',
       'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'] %>
   </div>
 

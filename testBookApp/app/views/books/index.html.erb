@@ -1,3 +1,17 @@
+<div class="container container-buttons">
+  <div class="btn-contained">
+    <%= link_to 'Liste des auteurs', authors_path, class: 'btn btn-warning' %> 
+  </div>
+  <div class="btn-contained">
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#new_book">
+      Ajouter un Livre à <%= @author.name %>
+    </button>
+  </div>
+  <div class="btn-contained">
+    <%= link_to "Retour à la page de #{@author.name}", author_path(@author), class: "btn btn-danger" %>
+  </div>       
+</div>
+
 <div class="container" id="container-index-books">
   <div class="row">
     <% @books.each do |book|  %>
@@ -18,5 +32,4 @@
   </div>
 </div>
 
-<%= link_to 'New Book', new_author_book_path(@author), class: 'btn btn-primary' %>
-<%= link_to 'Acceuil', root_path(@author), class: 'btn btn-danger' %>
+<%= render 'new_book_modal', author: @author, book: @book %> 
