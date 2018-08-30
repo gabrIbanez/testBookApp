@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_30_083400) do
+ActiveRecord::Schema.define(version: 2018_08_30_153130) do
 
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 2018_08_30_083400) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  create_table "borrowers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "birth_date"
+    t.string "city"
+    t.boolean "able_to_borrow", default: true
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_borrowers_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -41,6 +53,18 @@ ActiveRecord::Schema.define(version: 2018_08_30_083400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "borrower_id"
+    t.integer "book_id"
+    t.date "start_time"
+    t.date "end_time"
+    t.boolean "returned"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reservations_on_book_id"
+    t.index ["borrower_id"], name: "index_reservations_on_borrower_id"
   end
 
   create_table "users", force: :cascade do |t|

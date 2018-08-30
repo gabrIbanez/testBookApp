@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users
+  devise_for :users 
+  
+  resources :borrowers do 
+    resources :reservations
+  end
   resources :all_books, only: :index
   resources :books, only: :edit
 
