@@ -5,6 +5,7 @@ class AuthorsController < ApplicationController
   # GET /authors.json
   def index
     @authors = Author.all
+    @new_author = Author.new
   end
 
   # GET /authors/1
@@ -28,10 +29,10 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        format.html { redirect_to authors_path, notice: 'Author was successfully created.' }
         format.json { render :show, status: :created, location: @author }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @author.errors, status: :unprocessable_entity }
       end
     end

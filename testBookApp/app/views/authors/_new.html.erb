@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<%= simple_form_for(@new_author) do |form| %>
+			  <% if @new_author.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+			      <ul>
+			      <% @new_author.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+
+			  <div class="field">
+			  </div>
+
+			  <div class="field">
+			    <div class="row">
+			      <div class="col-xs-6">
+			        <%= form.input :first_name, label: 'Prénom' %>
+			      </div>
+			      <div class="col-xs-6">
+			        <%= form.input :last_name, label: 'Nom' %>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="field">
+			    <%= form.input :birth_date, as: :date, label: "Date de Naissance :", :use_month_names => ['janvier', 'février',
+			      'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'] %>
+			  </div>
+
+			  <div class="field">
+			    <%= form.input :city, label: "Ville de naissance" %>
+			  </div>
+				<div class="modal-footer">
+			  	<div class="actions">
+			    	<div class="row">
+				      <%= form.submit 'Créer un nouveau auteur', class: 'btn btn-primary col-xs-6' %>
+				  		<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+				    </div>
+			  	</div>
+				</div>
+			      
+			<% end %>			
+		</div>
+	</div>
+</div>

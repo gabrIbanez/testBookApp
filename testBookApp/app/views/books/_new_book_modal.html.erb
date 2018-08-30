@@ -1,0 +1,17 @@
+<!-- Modal -->
+<div class="modal fade" id="new_book" tabindex="-1" role="dialog" aria-labelledby="new_bookLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="new_bookLabel">Ajouter un livre à <%= @author.name %></h3>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<%= render 'new_for_modal', author: @author, book: @book %>
+      </div>
+    </div>
+  </div>
+</div>

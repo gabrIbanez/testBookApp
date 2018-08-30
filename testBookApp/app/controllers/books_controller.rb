@@ -6,6 +6,8 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.where(author: @author)
+    @new_book = Book.new
+    @book = Book.new
   end
 
   # GET /books/1
@@ -44,10 +46,10 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to author_books_path(@author), notice: 'Book was successfully updated.' }
+        format.html { redirect_to author_book_path(@author, @book), notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end

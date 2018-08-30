@@ -1,35 +1,35 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Authors</h1>
-
-<table>
-  <thead>
+<h1>Nos auteurs</h1>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Birth date</th>
-      <th>City</th>
-      <th>Nb of book published</th>
-      <th colspan="3"></th>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Date de Naissance</th>
+      <th scope="col">Ville d'origine</th>
+      <th scope="col">Nombre de livre publié</th>
     </tr>
   </thead>
-
   <tbody>
+    <% count = 0  %>
     <% @authors.each do |author| %>
-      <tr>
-        <td><%= author.first_name %></td>
-        <td><%= author.last_name %></td>
-        <td><%= author.birth_date %></td>
+    <% count += 1  %>
+      <th scope="row"><%= count %></th>
+        <td><%= author.name %></td>
+        <td><%= author.birth_date.strftime("%m/%d/%Y") %></td>
         <td><%= author.city %></td>
         <td><%= author.nb_of_book_published %></td>
-        <td><%= link_to 'Show', author, class: 'btn btn-info' %> | <%= link_to 'Edit', edit_author_path(author), class: 'btn btn-primary' %> | <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Ses Livres', author_books_path(author), class: 'btn btn-success' %>  | <%= link_to "Profile de l'auteur", author, class: 'btn btn-info' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Author', new_author_path, class: 'btn btn-primary' %> |
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Créer un nouvel author
+</button>|
 <%= link_to 'Back', root_path, class: 'btn btn-danger' %>
+
+<%= render "new_author_modal.html.erb", new_author: @new_author %>
 

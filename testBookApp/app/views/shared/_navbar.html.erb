@@ -16,8 +16,19 @@
 
         <img src="assets/books.png" class="avatar dropdown-toggle" id="navbar-prium-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-prium-dropdown-menu">
-          <li><a href="/authors">Les Auteurs</a></li>
-          <li><a href="/all_books">Les livres</a></li>
+          <% if user_signed_in? %>
+              <li><a href="/authors">Les Auteurs</a></li>
+              <li><a href="/all_books">Les livres</a></li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
+                <% end %>
+              </li>
+            <% else %>
+            <li>
+              <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-youwork-item navbar-youwork-link" %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
