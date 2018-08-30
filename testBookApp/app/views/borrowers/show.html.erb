@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @borrower.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @borrower.last_name %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @borrower.birth_date.strftime("%m/%d/%Y") %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @borrower.city %>
+</p>
+<p>
+  <strong>Nombre de Réservations effectuées:</strong>
+  <%= @borrower.reservations.count %>
+</p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Modifier mes Données
+</button>
+|
+<%= link_to 'Back', borrowers_path, class: 'btn btn-danger' %> |
+<%= link_to 'Faire une réservation', new_borrower_reservation_path(@borrower), class: 'btn btn-info' %>
+
+<!-- Modal -->
+<%= render 'edit_modal', borrower: @borrower %>
+<% if @borrower.reservations.present? %>
+	<div class="container" id="container-index-books">
+	  <div class="row">
+	    <% @books.each do |book|  %>
+	      <div class="col-xs-12 col-sm-4">
+	      <%= link_to  author_book_path(book.author, book)  do %>
+	        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('assets/book_cards.jpg');">
+	          <div class="card-category"><%= book.author_name %></div>
+	          <div class="card-description">
+	            <h2><%= book.name %></h2>
+	            <p><%= book.page_number%> pages</p>
+	            <p>Publier le <%= book.published_date.strftime('%d-%m-%Y') %></p>
+	            <p>Publier le <%= book.published_date.strftime('%d-%m-%Y') %></p>
+	          </div>
+	          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+	        </div>
+	      <% end %>
+	      </div>
+	    <% end %>
+	  </div>
+	</div>
+<% end %>

@@ -9,6 +9,7 @@
 
     <a href="/authors" class="navbar-prium-item navbar-prium-link">Les authors</a>
     <a href="/all_books" class="navbar-prium-item navbar-prium-link">Les Livres</a>
+    <a href="/borrowers" class="navbar-prium-item navbar-prium-link">Emprunter un livres</a>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-prium-item">
@@ -19,6 +20,7 @@
           <% if user_signed_in? %>
               <li><a href="/authors">Les Auteurs</a></li>
               <li><a href="/all_books">Les livres</a></li>
+              <li><a href="/borrowers">Emprunter un livres</a></li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Déconnexion") %>
@@ -40,7 +42,9 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-prium-dropdown-menu">
         <li><a href="/authors">Les Auteurs</a></li>
-          <li><a href="/all_books">Les livres</a></li>
+        <li><a href="/all_books">Les livres</a></li>
+        <li><a href="/borrowers">Emprunter un livres</a></li>
+        
       </ul>
     </div>
   </div>

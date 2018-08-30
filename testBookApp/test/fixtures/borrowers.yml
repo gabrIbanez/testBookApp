@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  birth_date: 2018-08-30 15:35:34
+  city: MyString
+  able_to_borrow: false
+  user: one
+
+two:
+  first_name: MyString
+  last_name: MyString
+  birth_date: 2018-08-30 15:35:34
+  city: MyString
+  able_to_borrow: false
+  user: two

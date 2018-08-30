@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Borrowers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Birth date</th>
+      <th>City</th>
+      <th>Able to borrow</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @borrowers.each do |borrower| %>
+      <tr>
+        <td><%= borrower.first_name %></td>
+        <td><%= borrower.last_name %></td>
+        <td><%= borrower.birth_date %></td>
+        <td><%= borrower.city %></td>
+        <td><%= borrower.able_to_borrow %></td>
+        <td><%= borrower.user %></td>
+        <td><%= link_to 'Show', borrower %></td>
+        <td><%= link_to 'Edit', edit_borrower_path(borrower) %></td>
+        <td><%= link_to 'Destroy', borrower, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Borrower', new_borrower_path %>

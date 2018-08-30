@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  borrower: one
+  book: one
+  start_time: 2018-08-30
+  end_time: 2018-08-30
+  returned: false
+
+two:
+  borrower: two
+  book: two
+  start_time: 2018-08-30
+  end_time: 2018-08-30
+  returned: false
