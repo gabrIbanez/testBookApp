@@ -2,6 +2,10 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    if user_signed_in?
+      @user = current_user 
+      @borrower = @user.borrower if @user.borrower
+    end
     if params[:query].present?
       sql_query = " \
         books.name LIKE :query \
