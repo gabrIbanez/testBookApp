@@ -4,7 +4,6 @@ class BorrowersController < ApplicationController
   # GET /borrowers
   # GET /borrowers.json
   def index
-
     if current_user.borrower.present?
       redirect_to borrower_path(@borrower)
     else  
